@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+		"name": "BillApp",
+		"description": "Collection de tests pour l'application BillApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bills",
+			"item": [
+				{
+					"name": "Get All Bills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/bills",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["bills"]
+						}
+					}
+				},
+				{
+					"name": "Get Bill by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/bills/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["bills", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f2c0b1a2-3d4e-5f6g-7h8i-9j0k1l2m3n4o"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create New Bill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"billnum\": \"2024-07-00001\",\n  \"description\": \"New Bill\",\n  \"date\": \"2024-07-01\",\n  \"clientId\": \"d99f5e5e-3c1c-4a0e-ae8d-2cfc55b3a5c9\",\n  \"prestations\": [\n    {\n      \"description\": \"Service 1\",\n      \"qty\": 1,\n      \"price\": 1000\n    }\n  ],\n  \"discount\": 0,\n  \"paid\": 0,\n  \"totalHT\": 1000,\n  \"tva\": 20,\n  \"totalTTC\": 1200\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/bills",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["bills"]
+						}
+					}
+				},
+				{
+					"name": "Update Bill by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Updated Bill\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/bills/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["bills", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f2c0b1a2-3d4e-5f6g-7h8i-9j0k1l2m3n4o"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Bill by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/bills/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["bills", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f2c0b1a2-3d4e-5f6g-7h8i-9j0k1l2m3n4o"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Get All Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clients",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["clients"]
+						}
+					}
+				},
+				{
+					"name": "Get Client by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clients/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["clients", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d99f5e5e-3c1c-4a0e-ae8d-2cfc55b3a5c9"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create New Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"New\",\n  \"lastName\": \"Client\",\n  \"companyName\": \"NewCo\",\n  \"createdAt\": \"2024-07-01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/clients",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["clients"]
+						}
+					}
+				},
+				{
+					"name": "Update Client by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"companyName\": \"UpdatedCo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/clients/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["clients", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d99f5e5e-3c1c-4a0e-ae8d-2cfc55b3a5c9"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Client by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clients/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["clients", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d99f5e5e-3c1c-4a0e-ae8d-2cfc55b3a5c9"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
